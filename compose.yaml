@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./Front-end
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"  # Maps port 80 of the container to port 3000 on the host (adjust if needed)
+    networks:
+      - app-network
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./Back-end
+      dockerfile: Dockerfile
+    ports:
+      - "5454:5454"  # Maps port 5000 of the container to port 5000 on the host (adjust if needed)
+    networks:
+      - app-network
+    env_file:
+      - ./Back-end/.env
+
+networks:
+  app-network:
+    driver: bridge
