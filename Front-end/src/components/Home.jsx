@@ -5,7 +5,7 @@ import { FaPen } from "react-icons/fa"; // Pencil icon for edit
 import TextareaAutosize from "react-textarea-autosize"; // Import the library
 
 const API_BASE_URL =
-  process.env.REACT_APP_API_BASE_URL || "http://localhost:5454/api"; // Fallback URL if env variable is not set
+  (process.env.REACT_APP_API_BASE_URL || "http://localhost:5454")  + "/api"; // Fallback URL if env variable is not set
 
 export const Home = () => {
   const [title, setTitle] = useState("");
