@@ -6,7 +6,7 @@ services:
       context: ./Front-end
       dockerfile: Dockerfile
     ports:
-      - "3000:80"  # Maps port 80 of the container to port 3000 on the host (adjust if needed)
+      - "80:80"  # Maps port 80 of the container to port 3000 on the host (adjust if needed)
     networks:
       - app-network
     depends_on:
